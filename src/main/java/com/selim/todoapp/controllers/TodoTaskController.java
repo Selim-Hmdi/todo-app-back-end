@@ -33,11 +33,10 @@ public class TodoTaskController {
     @GetMapping("/{id}")
     public ResponseEntity<TodoTask> findById(@PathVariable int id) {
         TodoTask taskFound = todoTaskService.findById(id);
-
         return ResponseEntity.ok(taskFound);
     }
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<Integer> create(@RequestBody TodoTask task) {
         todoTaskService.save(task);
         return ResponseEntity.ok(task.getId());
