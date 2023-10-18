@@ -45,7 +45,7 @@ public class TodoTaskController {
     @PutMapping("/{id}")
     public ResponseEntity<TodoTask> update(@RequestBody TodoTask recievedTask, @PathVariable int id) {
         TodoTask updatedTask = todoTaskService.findById(id);
-        updatedTask.setText(recievedTask.getText());
+        updatedTask.setTask(recievedTask.getTask());
         todoTaskService.save(updatedTask);
 
         return ResponseEntity.ok(updatedTask);
