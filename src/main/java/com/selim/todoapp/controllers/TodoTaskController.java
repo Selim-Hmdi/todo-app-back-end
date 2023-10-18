@@ -3,6 +3,7 @@ package com.selim.todoapp.controllers;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.selim.todoapp.models.TodoTask;
 import com.selim.todoapp.services.TodoTaskService;
 
+@CrossOrigin(origins = "http://localhost:5173/", maxAge = 3600)
 @RestController
 @RequestMapping("todo-task")
 public class TodoTaskController {
@@ -54,7 +56,6 @@ public class TodoTaskController {
     public ResponseEntity<TodoTask> delete(@PathVariable int id) {
         TodoTask taskToDelete = todoTaskService.findById(id);
         if(taskToDelete == null) return ResponseEntity.notFound().build();
-
         todoTaskService.delete(taskToDelete);
 
         return ResponseEntity.ok(taskToDelete);
