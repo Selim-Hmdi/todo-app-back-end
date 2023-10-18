@@ -14,14 +14,14 @@ public class TodoTask implements Serializable{
     private int id;
 
     @Column(nullable = false)
-    private String text;
+    private String task;
 
     public TodoTask() {
     }
 
-    public TodoTask(int id, String text) {
+    public TodoTask(int id, String task) {
         this.id = id;
-        this.text = text;
+        this.task = task;
     }
 
     public int getId() {
@@ -32,19 +32,19 @@ public class TodoTask implements Serializable{
         this.id = id;
     }
 
-    public String getText() {
-        return this.text;
+    public String getTask() {
+        return this.task;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTask(String task) {
+        this.task = task;
     }
 
     @Override
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", text='" + getText() + "'" +
+            ", task='" + getTask() + "'" +
             "}";
     }
 }
