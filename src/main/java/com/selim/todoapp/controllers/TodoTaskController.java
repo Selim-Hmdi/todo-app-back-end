@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.selim.todoapp.models.TodoTask;
 import com.selim.todoapp.services.TodoTaskService;
 
-@CrossOrigin(origins = "http://localhost:5173/", maxAge = 3600)
+@CrossOrigin(origins = {"http://localhost:5173/", "http:127.0.0.1:5173/"}, maxAge = 3600)
 @RestController
 @RequestMapping("todo-task")
 public class TodoTaskController {
